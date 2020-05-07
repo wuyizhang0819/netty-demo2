@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<Style>
+    li>ul{display:none;}
+</Style>
+<body>
+
+
+    <ul>
+        <li onclick="tree(0)">
+            电影
+            <ul class="liebiao">
+                <li>断背山</li>
+                <li>极品基老伴</li>
+                <li>老子的裙子去哪了</li>
+            </ul>
+        </li>
+        <li onclick="tree(1)">
+            书籍
+            <ul class="liebiao">
+                <li>富婆通讯录</li>
+                <li>老头通讯录</li>
+                <li>怎么吃饭</li>
+            </ul>
+        </li>
+
+        <li onclick="tree(2)">
+            音乐
+            <ul class="liebiao">
+                <li>啦啦啦</li>
+                <li>两只老夫</li>
+                <li>小星星</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+
+<script>
+
+    function tree(index){
+        //得到所有的ul  ，这里通过getElementsByClassName   这个方法是根据元素class属性值得到一组元素，和byName、byTagName获得的相同都是数组
+       var liebiao = document.getElementsByClassName("liebiao");
+       for(var i = 0; i<liebiao.length;i++){
+           if(i!=index){//这里不能改变你要点击的这个li下的ul的状态，因为在下一个if你要判断它是显示的还是隐藏的
+               liebiao[i].style.display="none";
+           }
+       }
+       //这里如果直接只做显示一个菜单其他子菜单全部隐藏，就直接用下面这句
+        // liebiao[index].style.display="block";
+        //如果要判断在同一个菜单上点击做到缩放,如果隐藏就打开，否则就隐藏
+        if(liebiao[index].style.display=="block"){
+            liebiao[index].style.display="none"
+        }else{
+            liebiao[index].style.display="block"
+        }
+    }
+
+
+</script>
